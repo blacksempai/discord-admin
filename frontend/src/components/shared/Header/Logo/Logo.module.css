@@ -1,0 +1,9 @@
+.Logo {
+    width: 5rem;
+}
+
+.Logo__img {
+    aspect-ratio: 1/1;
+    width: 100%;
+    border-radius: 50%;
+}
