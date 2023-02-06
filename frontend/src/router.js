@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from './components/HomePage/HomePage';
-import ErrorPage from './components/ErrorPage/ErrorPage';
+import HomePage from './components/HomePage/HomePage.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
     {
@@ -8,6 +8,6 @@ const router = createBrowserRouter([
         element: <HomePage/>,
         errorElement: <ErrorPage/>,
     },
-]);
+])
 
 export default router;

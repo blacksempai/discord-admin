@@ -1,4 +1,4 @@
-import Header from '../shared/Header/Header';
+import Header from '../shared/Header/Header.jsx';
 import classes from './HomePage.module.css';
 
 function HomePage(props) {
