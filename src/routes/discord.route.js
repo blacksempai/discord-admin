@@ -16,4 +16,18 @@ router.get('/me', async (req, res) => {
     }
 });
 
+router.get('/guilds', async (req, res) => {
+    const {token} = req;
+    try {
+        const {data} = await axios.get('https://discord.com/api/users/@me/guilds',{
+            headers: {'Authorization': 'Bearer '+token}
+        });
+        return res.send(data);
+    }
+    catch(e) {
+        console.log(e);
+        return res.status(500).end();
+    }
+});
+
 module.exports = router;

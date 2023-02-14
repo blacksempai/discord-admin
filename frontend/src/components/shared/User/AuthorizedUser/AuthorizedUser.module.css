@@ -1,0 +1,18 @@
+.user {
+    min-width: 6rem;
+    position: relative;
+}
+
+.user_button {
+    display: flex;
+    gap: 0.15rem;
+    align-items: center;
+    background: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.user_avatar {
+    width: 2.5rem;
+    border-radius: 50%;
+}

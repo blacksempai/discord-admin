@@ -7,17 +7,18 @@ router.get('/get-token', async (req, res) => {
     const {code} = req.query;
     if(code) {
         try {
-            const params = new URLSearchParams();
-            params.append('client_id', CLIENT_ID);
-            params.append('client_secret', CLIENT_SECRET);
-            params.append('grant_type', 'authorization_code');
-            params.append('code', code);
-            params.append('redirect_uri', 'http://localhost:25505/auth/get-token')
+            const params = new URLSearchParams({
+                client_id: CLIENT_ID,
+                client_secret: CLIENT_SECRET,
+                grant_type: 'authorization_code',
+                redirect_uri: 'http://localhost:25505/auth/get-token',
+                code
+            });
             const {data} = await axios.post('https://discord.com/api/oauth2/token', params, {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             });
-            res.cookie('token', data.access_token, {path: '/', maxAge: data.expires_in});
-            return res.redirect('/');
+            res.cookie('token', data.access_token);
+            return res.redirect('/dashboard');
         }
         catch(e) {
             console.log(e);

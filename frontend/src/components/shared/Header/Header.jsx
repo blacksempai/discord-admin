@@ -1,7 +1,7 @@
 import classes from './Header.module.css';
 import Logo from './Logo/Logo.jsx';
 import MainNavigation from './MainNavigation/MainNavigation.jsx';
-import User from './../User/User.jsx';
+import User from '../User/User.jsx';
 
 function Header(props) {
     return (
