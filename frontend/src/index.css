@@ -13,7 +13,8 @@ code {
 }
 
 .container {
-  margin: 0 10vw;
+  width: 1024px;
+  margin: 0 auto;
 }
 
 .material-symbols-outlined {

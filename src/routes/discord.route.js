@@ -22,7 +22,8 @@ router.get('/guilds', async (req, res) => {
         const {data} = await axios.get('https://discord.com/api/users/@me/guilds',{
             headers: {'Authorization': 'Bearer '+token}
         });
-        return res.send(data);
+        const availableServers = data.filter(s => (s.permissions & (1 << 3)) === (1 << 3));
+        return res.send(availableServers);
     }
     catch(e) {
         console.log(e);
@@ -30,4 +31,4 @@ router.get('/guilds', async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = router;                          

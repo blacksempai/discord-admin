@@ -12,7 +12,7 @@ const index = fs.readFileSync(path.join(__dirname, '..' , 'public', 'index.html'
 
 app.use(express.static('public'));
 
-app.get('/dashboard', (req, res) => {
+app.get('/dashboard*', (req, res) => {
     res.send(index);
 });
 

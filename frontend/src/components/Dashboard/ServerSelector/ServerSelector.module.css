@@ -1,3 +1,10 @@
 .server_selector_container {
     text-align: center;
 }
+
+.server_list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}

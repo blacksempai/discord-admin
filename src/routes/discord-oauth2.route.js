@@ -27,5 +27,10 @@ router.get('/get-token', async (req, res) => {
     }
 });
 
+router.get('/redirect-guild', async (req, res) => {
+    const guild_id = req.query.guild_id;
+    return res.redirect('/dashboard/'+guild_id);
+});
+
 
 module.exports = router;        
