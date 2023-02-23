@@ -1,11 +1,11 @@
 import Header from "../../shared/Header/Header.jsx";
-import classes from './ServerSelector.module.css';
+import classes from './GuildSelector.module.css';
 import { useEffect } from 'react';
 import axios from "axios";
 import { useState } from 'react';
-import ServerCard from './ServerCard/ServerCard.jsx';
+import GuildCard from './GuildCard/GuildCard.jsx';
 
-function ServerSelector() {
+function GuildSelector() {
     const [guilds, setGuilds] = useState([]);
 
     useEffect(() => {
@@ -15,14 +15,14 @@ function ServerSelector() {
     return (
         <div>
             <Header/>
-            <div className={classes.server_selector_container + ' container'}>
-                <h2>Select a server</h2>
-                <ul className={classes.server_list}>
-                    {guilds.map(g => <li><ServerCard server={g}/></li>)}
+            <div className={classes.guild_selector_container + ' container'}>
+                <h2>Select a guild</h2>
+                <ul className={classes.guild_list}>
+                    {guilds.map(g => <li><GuildCard guild={g}/></li>)}
                 </ul>
             </div>
         </div>
     )
 }
 
-export default ServerSelector;
+export default GuildSelector;

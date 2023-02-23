@@ -1,14 +1,12 @@
 const express = require('express');
-const axios = require('axios');
 const router = express.Router();
+const discordService = require('../services/discord.service');
 
 router.get('/me', async (req, res) => {
     const {token} = req;
     try {
-        const {data} = await axios.get('https://discord.com/api/oauth2/@me',{
-            headers: {'Authorization': 'Bearer '+token}
-        });
-        return res.send(data.user);
+        const user = await discordService.getUser(token);
+        return res.send(user);
     }
     catch(e) {
         console.log(e);
@@ -19,11 +17,8 @@ router.get('/me', async (req, res) => {
 router.get('/guilds', async (req, res) => {
     const {token} = req;
     try {
-        const {data} = await axios.get('https://discord.com/api/users/@me/guilds',{
-            headers: {'Authorization': 'Bearer '+token}
-        });
-        const availableServers = data.filter(s => (s.permissions & (1 << 3)) === (1 << 3));
-        return res.send(availableServers);
+        const guilds = await discordService.getUserGuildsAvailable(token);
+        return res.send(guilds);
     }
     catch(e) {
         console.log(e);

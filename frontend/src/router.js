@@ -13,6 +13,11 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard/>,
         errorElement: <ErrorPage/>,
+    },
+    {
+        path: '/dashboard/:id',
+        element: <Dashboard/>,
+        errorElement: <ErrorPage/>,
     }
 ])
 
