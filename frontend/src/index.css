@@ -1,6 +1,8 @@
 :root {
   --bg-dark: rgb(31, 33, 41);
   --bg-grey: #8f96a3;
+
+  --text-default: #ffffff;
 }
 
 body {

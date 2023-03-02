@@ -20,7 +20,10 @@ module.exports = {
         rules: [
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
-                loader: 'file-loader',
+                type: 'asset/resource',
+                generator: {
+                    publicPath: '/'
+                }
             },
             {
                 test: /\.jsx?$/,

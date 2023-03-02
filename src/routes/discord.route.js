@@ -26,4 +26,16 @@ router.get('/guilds', async (req, res) => {
     }
 });
 
+router.get('/user-bot-guilds', async (req, res) => {
+    const {token} = req;
+    try {
+        const guilds = await discordService.getMutualGuilds(token);
+        return res.send(guilds);
+    }
+    catch(e) {
+        console.log(e);
+        return res.status(500).end();
+    }
+});
+
 module.exports = router;                          

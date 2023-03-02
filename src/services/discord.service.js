@@ -26,12 +26,15 @@ module.exports = {
         return data;
     },
     async getUserGuildsAvailable(token) {
-        const userGuilds = await this.getUserGuildsAdministered(token);
-        const botGuilds = await this.getBotGuilds();
+        const [userGuilds, botGuilds] = await Promise.all([this.getUserGuildsAdministered(token), this.getBotGuilds()]);
         return userGuilds.map(guild =>  
             botGuilds.find(g => g.id === guild.id) ?
             {...guild, isBot: true} :
             {...guild, isBot: false}
         );
+    },
+    async getMutualGuilds(token) {
+        const [userGuilds, botGuilds] = await Promise.all([this.getUserGuildsAdministered(token), this.getBotGuilds()]);
+        return userGuilds.filter(guild => botGuilds.some(g => g.id === guild.id));
     }
 }

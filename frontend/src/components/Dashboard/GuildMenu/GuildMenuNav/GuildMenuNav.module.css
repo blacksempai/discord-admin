@@ -1,0 +1,26 @@
+.sidebar_toggle {
+    background: none;
+    border: none;
+    color: var(--text-default);
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.sidebar_toggle span {
+    font-size: 2rem;
+}
+
+.menu_header {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.15rem;
+}
