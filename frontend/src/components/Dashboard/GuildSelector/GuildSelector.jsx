@@ -1,8 +1,7 @@
 import Header from "../../shared/Header/Header.jsx";
 import classes from './GuildSelector.module.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from "axios";
-import { useState } from 'react';
 import GuildCard from './GuildCard/GuildCard.jsx';
 
 function GuildSelector() {

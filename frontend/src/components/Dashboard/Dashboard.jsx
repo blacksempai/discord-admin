@@ -1,6 +1,7 @@
 import { withCookies } from "react-cookie";
 import { Navigate, useParams } from "react-router-dom";
 import GuildSelector from "./GuildSelector/GuildSelector.jsx";
+import GuildMenu from './GuildMenu/GuildMenu.jsx';
 
 function Dashboard(props) {
     const {cookies} = props;
@@ -9,7 +10,7 @@ function Dashboard(props) {
         return <Navigate to='/' />
     }
     if(id) {
-        return <div>Guild: {id}</div>
+        return <GuildMenu id={id} />
     }
     return <GuildSelector/>;
 }

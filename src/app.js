@@ -9,8 +9,13 @@ const fs = require('fs');
 const path = require('path');
 
 const index = fs.readFileSync(path.join(__dirname, '..' , 'public', 'index.html')).toString();
+const bundle = fs.readFileSync(path.join(__dirname, '..' , 'public', 'bundle.js')).toString();
 
 app.use(express.static('public'));
+
+app.get('/dashboard/bundle.js', (req, res) => {
+    res.send(bundle);
+});
 
 app.get('/dashboard*', (req, res) => {
     res.send(index);
