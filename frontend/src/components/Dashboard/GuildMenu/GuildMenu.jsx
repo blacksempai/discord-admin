@@ -2,6 +2,7 @@ import classes from './GuildMenu.module.css';
 import User from '../../shared/User/User.jsx'
 import GuildMenuNav from './GuildMenuNav/GuildMenuNav.jsx'
 import { useState } from 'react';
+import Plugins from './../Plugins/Plugins.jsx';
 
 function GuildMenu({id}) {
     const [isSidebarFolded, setIsSidebarFolded] = useState(false);
@@ -18,7 +19,9 @@ function GuildMenu({id}) {
                 <header className={classes.header}>
                     <User/>
                 </header>
-                <div className={classes.router_outlet}></div>
+                <div className={classes.router_outlet}>
+                    <Plugins/>
+                </div>
             </main>
         </div>
     )

@@ -1,0 +1,11 @@
+.card_avatar {
+    border: 2px solid rgb(85, 87, 98);
+    background: transparent;
+    filter: none;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    font-size: 0.5em;
+    align-items: center;
+    justify-content: center;
+}

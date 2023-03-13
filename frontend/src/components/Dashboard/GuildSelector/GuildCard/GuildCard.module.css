@@ -12,20 +12,6 @@
     justify-content: center;
 }
 
-.card_avatar {
-    border: 2px solid rgb(85, 87, 98);
-    background: transparent;
-    filter: none;
-    font-size: 24px;
-    font-weight: bold;
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .card_footer {
     width: 100%;
     display: flex;

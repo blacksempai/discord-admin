@@ -18,7 +18,10 @@ function GuildMenuNav({toggleSidebar, isSidebarFolded, id}) {
             <GuildSelector isSidebarFolded={isSidebarFolded} id={id}/>
             <ul className={classes.menu_list}>
                 <li className={classes.menu_item}>
-                    <Link to={''}>Dashboard</Link>
+                    <Link to={''} className={classes.menu_link}>
+                        <span class="material-symbols-outlined">dashboard</span>
+                        {isSidebarFolded ? null : <span>Dashboard</span>}
+                    </Link>
                 </li>
             </ul>
         </nav>

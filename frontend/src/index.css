@@ -3,6 +3,10 @@
   --bg-grey: #8f96a3;
 
   --text-default: #ffffff;
+
+  --text-grey: #aab;
+
+  --primary-blue: rgb(57, 148, 255);
 }
 
 body {
