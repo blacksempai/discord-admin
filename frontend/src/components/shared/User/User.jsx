@@ -13,7 +13,7 @@ function User(props)
         return <AuthorizedUser />
     }
 
-    return <a href={redirectURL}>Login</a>
+    return <a className='btn' href={redirectURL}>Login</a>
 }
 
 export default withCookies(User);

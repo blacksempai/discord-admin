@@ -1,8 +1,0 @@
-.Nav__list {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
