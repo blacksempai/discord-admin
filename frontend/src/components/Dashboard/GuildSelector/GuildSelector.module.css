@@ -2,9 +2,14 @@
     text-align: center;
 }
 
+.guild_selector_container h2 {
+    color: var(--text-default);
+    margin-bottom: 1.5rem;
+}
+
 .guild_list {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2.5rem;
 }

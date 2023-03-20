@@ -5,7 +5,8 @@
     font-weight: bold;
     border-radius: 50%;
     display: flex;
-    font-size: 0.5em;
+    font-size: 0.4em;
     align-items: center;
     justify-content: center;
+    color: var(--text-default);
 }

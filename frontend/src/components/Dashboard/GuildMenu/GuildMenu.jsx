@@ -20,7 +20,7 @@ function GuildMenu({id}) {
                     <User/>
                 </header>
                 <div className={classes.router_outlet}>
-                    <Plugins/>
+                    <Plugins guildId={id}/>
                 </div>
             </main>
         </div>

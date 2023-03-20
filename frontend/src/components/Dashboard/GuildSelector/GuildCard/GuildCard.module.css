@@ -16,6 +16,9 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding-top: 1rem;
+    color: var(--text-default);
+    font-size: 1.1rem;
 }
 
 .description {

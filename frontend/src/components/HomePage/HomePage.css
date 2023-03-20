@@ -364,7 +364,7 @@ body
     color: gray;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1124px) {
     .intro
     {
         min-height: 0;

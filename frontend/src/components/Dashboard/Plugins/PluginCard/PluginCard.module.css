@@ -9,6 +9,30 @@
     background-color: rgba(0, 0, 10, 0.8);
 }
 
+.card:hover > .btn_container button {
+    background-color: var(--primary-blue) !important;
+}
+
+.card > .btn_container button.danger {
+    background-color: var(--primary-success) !important;
+}
+
+.card:hover > .btn_container button.danger {
+    background-color: var(--primary-danger) !important;
+}
+
+button.danger::before {
+    content: 'Active';
+}
+
+.card:hover > .btn_container button.danger::after {
+    content: 'Disable';
+}
+
+.card:hover > .btn_container button.danger::before {
+    content: '';
+}
+
 .card_icon {
     width: 60px;
     height: 60px;
@@ -28,4 +52,5 @@
 
 .card_description {
     color: var(--text-grey);
+    margin-bottom: 0.5rem;
 }
