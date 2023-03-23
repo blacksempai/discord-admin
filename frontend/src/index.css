@@ -48,3 +48,18 @@ code {
   cursor: pointer;
   text-decoration: none;
 }
+
+.modal-content {
+  background-color: var(--bg-dark);
+  color: var(--text-default);
+}
+
+.modal-content .btn-close {
+  filter: invert(1);
+}
+
+.btn:hover {
+  color: var(--text-default);
+  background-color: initial;
+  border-color: initial;
+}

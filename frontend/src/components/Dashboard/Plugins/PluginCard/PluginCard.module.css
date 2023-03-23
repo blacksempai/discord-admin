@@ -9,28 +9,48 @@
     background-color: rgba(0, 0, 10, 0.8);
 }
 
-.card:hover > .btn_container button {
-    background-color: var(--primary-blue) !important;
+.card:hover > .btn_container .active_btn {
+    background-color: var(--primary-blue);
 }
 
-.card > .btn_container button.danger {
-    background-color: var(--primary-success) !important;
+.card > .btn_container button {
+    width: 7rem;
+    transition: all .6s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
-.card:hover > .btn_container button.danger {
-    background-color: var(--primary-danger) !important;
+.card > .btn_container button > .alt_btn_text {
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    background-color: var(--primary-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-radius: 6px;
+    transform: translateY(3.2rem);
+    transition: all 1s;
 }
 
-button.danger::before {
-    content: 'Active';
+.card:hover > .btn_container button > .alt_btn_text {
+    transform: translateY(0);
 }
 
-.card:hover > .btn_container button.danger::after {
-    content: 'Disable';
+.card > .btn_container button > .main_btn_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    transform: translateY(0);
+    transition: all 1s;
 }
 
-.card:hover > .btn_container button.danger::before {
-    content: '';
+.card:hover > .btn_container button > .main_btn_text {
+    transform: translateY(-2rem);
 }
 
 .card_icon {

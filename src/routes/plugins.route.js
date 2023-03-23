@@ -19,7 +19,7 @@ router.put('', async (req, res) => {
     if(!data.guildId) {
         return res.status(400).send();
     }
-    let plugins = await Plugins.findOneAndUpdate(data);
+    let plugins = await Plugins.findOneAndUpdate({guildId: data.guildId}, data, {new: true});
     return res.send(plugins);
 });
 
