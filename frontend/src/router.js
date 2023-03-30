@@ -18,7 +18,12 @@ const router = createBrowserRouter([
         path: '/dashboard/:id',
         element: <Dashboard/>,
         errorElement: <ErrorPage/>,
-    }
+    },
+    {
+        path: '/dashboard/:id/*',
+        element: <Dashboard/>,
+        errorElement: <ErrorPage/>,
+    },
 ])
 
 export default router;

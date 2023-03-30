@@ -3,6 +3,8 @@ import User from '../../shared/User/User.jsx'
 import GuildMenuNav from './GuildMenuNav/GuildMenuNav.jsx'
 import { useState } from 'react';
 import Plugins from './../Plugins/Plugins.jsx';
+import { Route, Routes } from 'react-router-dom';
+import Economy from './../Plugins/PluginPages/Economy/Economy.jsx';
 
 function GuildMenu({id}) {
     const [isSidebarFolded, setIsSidebarFolded] = useState(false);
@@ -20,7 +22,10 @@ function GuildMenu({id}) {
                     <User/>
                 </header>
                 <div className={classes.router_outlet}>
-                    <Plugins guildId={id}/>
+                    <Routes>
+                        <Route path='' element={<Plugins guildId={id}/>}/>
+                        <Route path='economy' element={<Economy/>}/>
+                    </Routes>
                 </div>
             </main>
         </div>

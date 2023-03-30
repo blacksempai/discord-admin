@@ -1,0 +1,16 @@
+.economy {
+    padding: 2rem;
+}
+
+.small_input {
+    width: 16rem;
+}
+
+.fixed_alert {
+    position: fixed;
+    bottom: 1rem;
+    width: 70%;
+    left: 25%;
+    display: flex;
+    justify-content: space-between;
+}

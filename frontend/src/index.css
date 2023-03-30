@@ -63,3 +63,21 @@ code {
   background-color: initial;
   border-color: initial;
 }
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  --bs-accordion-bg: #212529;
+  --bs-accordion-color: #fff;
+  --bs-accordion-btn-color: #fff;
+  --bs-accordion-btn-bg: #212529;
+  --bs-accordion-btn-focus-border-color: #86b7fe;
+  --bs-accordion-active-color: #0c63e4;
+  --bs-accordion-active-bg: #1a2c3c;
+}
+
+.form-control {
+  background-color: #000 !important;
+  color: #fff !important;
+}

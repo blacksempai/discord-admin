@@ -15,9 +15,11 @@ connect(process.env.MONGO_URI).then(() => console.log("The client is now connect
 const index = fs.readFileSync(path.join(__dirname, '..' , 'public', 'index.html')).toString();
 const bundle = fs.readFileSync(path.join(__dirname, '..' , 'public', 'bundle.js')).toString();
 
+app.disable('etag');
+
 app.use(express.static('public'));
 
-app.get('/dashboard/bundle.js', (req, res) => {
+app.get('*/bundle.js', (req, res) => {
     res.send(bundle);
 });
 
