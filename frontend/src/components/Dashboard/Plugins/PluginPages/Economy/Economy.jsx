@@ -1,3 +1,4 @@
+import React from 'react';
 import Form from 'react-bootstrap/Form';
 import classes from './Economy.module.css';
 import sharedClasses from '../Shared.module.css'
@@ -9,13 +10,17 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function Economy() {
-    let [showDisableModal, setShowDisableModal] = useState(false);
-    let [showSaveAlert, setShowSaveAlert] = useState(false);
-    let [currencyName, setCurrencyName] = useState('Cludy Currency');
+    const [showDisableModal, setShowDisableModal] = useState(false);
+    const [showSaveAlert, setShowSaveAlert] = useState(false);
+    const [price, setPrice] = useState("1");
+    const [validated, setValidated] = useState(false);
+    const [currencyName, setCurrencyName] = useState('Cludy Currency');
     const { id } = useParams();
     const navigate = useNavigate()
+    const formRef = React.createRef();
 
     const handleClose = (isConfirm) => {
         setShowDisableModal(false);
@@ -25,11 +30,27 @@ function Economy() {
         }
     }
 
+    const handleFormChange = (event) => {
+        if(event.currentTarget.checkValidity() === true) {
+            setShowSaveAlert(true);
+        } else {
+            setShowSaveAlert(false);
+        }
+    }
+
     const handleCurrencyNameChange = (event) => {
         setCurrencyName(event.target.value);
     }
 
+    const handlePriceChange = (event) => {
+        setPrice(event.target.value);
+    }
+
     const saveChanges = () => {
+        if (formRef.current.checkValidity() === false) {
+            return;
+        }
+        setValidated(true);
         axios.post('/plugins/economy/currency', {data: {guildId: id, currency: currencyName}}).then();
     }
 
@@ -56,7 +77,7 @@ function Economy() {
                 </div>
             </div>
             <div className={classes.main}>
-            <Form onChange={event => setShowSaveAlert(true)}>
+            <Form onChange={handleFormChange} validated={validated} ref={formRef}>
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Customise your currency</Accordion.Header>
@@ -66,9 +87,15 @@ function Economy() {
                                 
                                 </div>
                                 <div className={classes.currency_body_right}>
-                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Group className="mb-3" controlId="formCurrencyName">
                                             <Form.Label>Currency name</Form.Label>
-                                            <Form.Control type="text" placeholder="Currency name" className={classes.small_input} value={currencyName} onChange={handleCurrencyNameChange}/>
+                                            <Form.Control 
+                                                type="text" 
+                                                placeholder="Currency name" 
+                                                className={classes.small_input} 
+                                                value={currencyName} 
+                                                onChange={handleCurrencyNameChange} 
+                                                required/>
                                             <Form.Text className="text-muted">
                                                 Enter the name of currency
                                             </Form.Text>
@@ -84,13 +111,24 @@ function Economy() {
                     <Accordion.Item eventKey="1">
                         <Accordion.Header>Currency Name</Accordion.Header>
                         <Accordion.Body>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
+                            <Form.Group className="mb-3" controlId="formItem">
+                                    <Form.Label>Price</Form.Label>
+                                    <InputGroup hasValidation className='mb-3'>
+                                        <Form.Control onChange={handlePriceChange}
+                                            value={price}
+                                            type="text" 
+                                            placeholder="Enter the price" 
+                                            pattern="^\d+$"
+                                            isInvalid={!new RegExp(/^\d+$/).test(price.toString())}
+                                            required/>
+                                        <Form.Control.Feedback type="invalid">
+                                            Only digits
+                                        </Form.Control.Feedback>
+                                    </InputGroup>
+                                    
+                                    <Form.Label>Type</Form.Label>
+                                    <Form.Control value="Role" type="text" className='w-25' readOnly={true}/>
+                            </Form.Group>
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
